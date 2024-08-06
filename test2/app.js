@@ -50,7 +50,8 @@ function checkKidney(req ,res , next){
         })
         return;
     }
-
+    
+    
     next()
 
 }
@@ -58,6 +59,18 @@ function checkKidney(req ,res , next){
 // with middleware
 app.get('/health-checkup' ,checkauth , checkKidney, function(req , res){
     res.send('you are healthy')
+})
+
+
+// global catches 
+
+app.use(function(err , req , res , next){
+    console.log("Error is :" , err);
+
+    res.status(500).json({
+        error : 'something went wrong!'
+    })
+    
 })
 
 app.listen(3000)
