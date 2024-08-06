@@ -1,0 +1,11 @@
+methods to add middlewares are
+
+=> to add middleware for all routes 
+use : app.use(function reference)
+
+=> to add middleware for specific route
+use : chain function 
+app.get('/' , middleware , function(){
+    
+})
+
